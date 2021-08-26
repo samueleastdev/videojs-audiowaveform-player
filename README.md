@@ -2,6 +2,8 @@
 
 Simple json audio waveforms
 
+![Simple json audio waveforms](https://samueleast.com/wp-content/uploads/2021/08/Screenshot-2021-08-26-at-23.22.27.png)
+
 ## Table of Contents
 
 <!-- START doctoc -->
