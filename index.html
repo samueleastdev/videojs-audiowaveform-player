@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>videojs-audiowaveform-player Demo</title>
+  <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="dist/videojs-audiowaveform-player.css" rel="stylesheet">
+</head>
+<body>
+  <video id="videojs-audiowaveform-player-player" class="video-js vjs-default-skin" controls></video>
+  <ul>
+    <li><a href="/test/debug.html">Run unit tests in browser.</a></li>
+    <li><a href="docs/api/">Read generated docs.</a></li>
+  </ul>
+  <!--<div class="vjs-waveform"></div>-->
+  <script src="node_modules/video.js/dist/video.js"></script>
+  <script src="dist/videojs-audiowaveform-player.js"></script>
+  <script>
+    (function(window, videojs) {
+        
+        var examplePlayer = videojs('videojs-audiowaveform-player-player',{
+            inactivityTimeout: 0 
+        });
+        
+        // This data can be grab via the s3bubble api
+        var audiowaveformPlayer = examplePlayer.audiowaveformPlayer({
+            poster: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+            src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
+            type: "application/x-mpegURL",
+            waveform: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
+            progressHeight: 120,
+            barWidth: 1,
+            barHeight: 1,
+            brand: 'rgba(75, 150, 242, 1)',
+            posterWidth: 160
+        });
+
+    }(window, window.videojs));
+  </script>
+</body>
+</html>
+
+
+
