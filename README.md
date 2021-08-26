@@ -6,7 +6,7 @@ Simple json audio waveforms
 
 ## The Waveform Data Is Generated Using the S3Bubble Desktop App
 
-[S3Bubble Desktop App]: https://s3bubble.com/aws-encoding-desktop-app/
+[S3Bubble Desktop App](https://s3bubble.com/aws-encoding-desktop-app)
 
 ## Table of Contents
 
