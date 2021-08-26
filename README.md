@@ -8,6 +8,11 @@ Simple json audio waveforms
 
 [Download S3Bubble Desktop App](https://s3bubble.com/aws-encoding-desktop-app)
 
+## You Can Get A Player Via The S3Bubble API
+
+```curl "https://s3bubbleapi.com/player?code={replace with your player code}" \
+-H "Authorization: {replace with your api key}"```
+
 ## Table of Contents
 
 <!-- START doctoc -->
