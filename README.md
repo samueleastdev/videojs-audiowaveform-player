@@ -4,6 +4,10 @@ Simple json audio waveforms
 
 ![Simple json audio waveforms](https://samueleast.com/wp-content/uploads/2021/08/Screenshot-2021-08-26-at-23.22.27.png)
 
+## The Waveform Data Is Generated Using the S3Bubble Desktop App
+
+[S3Bubble Desktop App]: https://s3bubble.com/aws-encoding-desktop-app/
+
 ## Table of Contents
 
 <!-- START doctoc -->
