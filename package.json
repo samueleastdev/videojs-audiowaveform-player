@@ -1,5 +1,5 @@
 {
-  "name": "videojs-audiowaveform-player",
+  "name": "@samueleastdev/videojs-audiowaveform-player",
   "version": "0.0.1",
   "description": "Simple json audio waveforms",
   "main": "cjs/plugin.js",

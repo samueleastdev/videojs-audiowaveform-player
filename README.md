@@ -8,6 +8,8 @@ Simple json audio waveforms
 
 [Download S3Bubble Desktop App](https://s3bubble.com/aws-encoding-desktop-app)
 
+it will fallback to AudioContext Web API
+
 ## You Can Get A Player Via The S3Bubble API
 
 ```
@@ -19,15 +21,16 @@ curl "https://s3bubbleapi.com/player?code={replace with your player code}" \
 
 <!-- START doctoc -->
 <!-- END doctoc -->
+
 ## Installation
 
 ```sh
-npm install --save videojs-audiowaveform-player
+npm install --save @samueleastdev/videojs-audiowaveform-player
 ```
 
 ## Usage
 
-To include videojs-audiowaveform-player on your website or web application, use any of the following methods.
+To include @samueleastdev/videojs-audiowaveform-player on your website or web application, use any of the following methods.
 
 ### `<script>` Tag
 
@@ -37,44 +40,37 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script src="//path/to/video.min.js"></script>
 <script src="//path/to/videojs-audiowaveform-player.min.js"></script>
 <script>
-  var player = videojs('my-video');
+  var wavePlayer = videojs("videojs-audiowaveform", {
+    inactivityTimeout: 0,
+    plugins: {
+      audiowaveformPlayer: {
+        theme: "audio",
+        barWidth: 1,
+        barHeight: 1,
+        brand: "rgba(75, 150, 242, 1)",
+        posterWidth: 160,
+        styles: {
+          position: "absolute",
+          height: "120px",
+          bottom: "30px",
+        },
+      },
+    },
+  });
 
-  player.audiowaveformPlayer();
+  wavePlayer.src({
+    poster:
+      "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+    src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
+    type: "application/x-mpegURL",
+    waveform:
+      "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
+  });
 </script>
-```
-
-### Browserify/CommonJS
-
-When using with Browserify, install videojs-audiowaveform-player via npm and `require` the plugin as you would any other module.
-
-```js
-var videojs = require('video.js');
-
-// The actual plugin function is exported by this module, but it is also
-// attached to the `Player.prototype`; so, there is no need to assign it
-// to a variable.
-require('videojs-audiowaveform-player');
-
-var player = videojs('my-video');
-
-player.audiowaveformPlayer();
-```
-
-### RequireJS/AMD
-
-When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
-
-```js
-require(['video.js', 'videojs-audiowaveform-player'], function(videojs) {
-  var player = videojs('my-video');
-
-  player.audiowaveformPlayer();
-});
 ```
 
 ## License
 
 MIT. Copyright (c) Samuel East
-
 
 [videojs]: http://videojs.com/

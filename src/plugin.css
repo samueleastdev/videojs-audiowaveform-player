@@ -9,7 +9,6 @@
  *   https://www.w3.org/TR/css-variables-1/
  */
 
-
 /* Note: all vars must be defined here, there are no "local" vars */
 :root {
   --main-color: red;
@@ -18,12 +17,13 @@
 }
 
 .video-js {
-
-  &.vjs-audiowaveform-player {
+  &.vjs-audiowaveform-audio-theme {
     /* This class is added to the video.js element by the plugin by default. */
     display: block;
 
-    & .remove-me, & .remove-me-too, &.finally-remove-me {
+    & .remove-me,
+    & .remove-me-too,
+    &.finally-remove-me {
       /* examples of postcss syntax, you probably want to remove this */
 
       color: var(--main-color);
@@ -34,51 +34,59 @@
        * `calc(10 * var(--base-font-size)em` will NOT work!
        */
       font-size: calc(var(--font-size) * 8 * var(--base-font-size) * 1px);
-
     }
   }
 }
 
-.vjs-audiowaveform-player {
-    position: relative;
-    height: 150px;
-    width: 100%;
-    max-width: 100%;
-    background-color: #fff;
-    border-radius: 3px;
-    overflow: hidden;
+.vjs-waveform {
+  position: absolute;
+  width: 100%;
+  height: auto;
 }
 
-.vjs-audiowaveform-player .vjs-waveform {
-    position: absolute;
-    top: 0px; 
-    left: 160px;
-    width: 100%;
-    height: auto;
+.vjs-audiowaveform-audio-theme {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-.vjs-audiowaveform-player .vjs-waveform-artwork {
-    position: absolute;
-    top: 0px; 
-    left: 0px;
-    width: 150px;
-    height: 150px;
+.vjs-audiowaveform-audio-theme .vjs-big-play-button,
+.vjs-audiowaveform-audio-theme .vjs-fullscreen-control {
+  display: none;
 }
 
-.vjs-audiowaveform-player .vjs-waveform-artwork img {
-    border-radius: 5px;
+.vjs-audiowaveform-audio-theme .vjs-waveform {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: auto;
 }
- 
-.vjs-audiowaveform-player .vjs-control-bar {
-    z-index: 3;
-}
- 
-.vjs-audiowaveform-player .vjs-progress-control {
-	opacity: 0;
-} 
 
-.vjs-audiowaveform-player  .vjs-control-bar {
-  	display: flex !important;
-  	left: 150px;
-  	width: auto !important;
+.vjs-audiowaveform-audio-theme .vjs-waveform-artwork {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  height: 150px;
+}
+
+.vjs-audiowaveform-audio-theme .vjs-waveform-artwork img {
+  border-radius: 5px;
+}
+
+.vjs-audiowaveform-audio-theme .vjs-control-bar {
+  z-index: 3;
+}
+
+.vjs-audiowaveform-audio-theme .vjs-progress-control {
+  opacity: 0;
+}
+
+.vjs-audiowaveform-audio-theme .vjs-control-bar {
+  display: flex !important;
+  width: auto !important;
 }
