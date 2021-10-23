@@ -6,7 +6,6 @@ const Plugin = videojs.getPlugin('plugin');
 
 // Set up audio context
 const WaveformComponent = videojs.getComponent('Component');
-const audioContext = new AudioContext();
 let currentBuffer = null;
 
 // Default options for the plugin.

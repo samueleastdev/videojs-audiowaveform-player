@@ -20,6 +20,8 @@
     <script src="node_modules/video.js/dist/video.js"></script>
     <script src="dist/videojs-audiowaveform-player.js"></script>
     <script>
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioContext = new AudioContext();
       (function (window, videojs) {
         var examplePlayer = videojs("videojs-audiowaveform", {
           inactivityTimeout: 0,
