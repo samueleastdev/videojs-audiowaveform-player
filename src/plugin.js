@@ -87,6 +87,9 @@ class AudiowaveformPlayer extends Plugin {
 
     return new Promise((resolve, reject) => {
 
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioContext = new AudioContext();
+
       let audioBuffer = audioContext.decodeAudioData(body).then((audioBuffer) => {
 
         const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data

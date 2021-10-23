@@ -20,51 +20,49 @@
     <script src="node_modules/video.js/dist/video.js"></script>
     <script src="dist/videojs-audiowaveform-player.js"></script>
     <script>
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioContext = new AudioContext();
-      (function (window, videojs) {
-        var examplePlayer = videojs("videojs-audiowaveform", {
-          inactivityTimeout: 0,
-          plugins: {
-            audiowaveformPlayer: {
-              theme: "audio",
-              barWidth: 1,
-              barHeight: 1,
-              brand: "rgba(75, 150, 242, 1)",
-              posterWidth: 160,
-              styles: {
-                position: "absolute",
-                height: "120px",
-                bottom: "30px",
-              },
+      // Important must be included if you want to fallback to the Audio Web API
+
+      var examplePlayer = videojs("videojs-audiowaveform", {
+        inactivityTimeout: 0,
+        plugins: {
+          audiowaveformPlayer: {
+            theme: "audio",
+            barWidth: 1,
+            barHeight: 1,
+            brand: "rgba(75, 150, 242, 1)",
+            posterWidth: 160,
+            styles: {
+              position: "absolute",
+              height: "120px",
+              bottom: "30px",
             },
           },
-        });
+        },
+      });
 
-        // Set the player src object
-        examplePlayer.src({
-          poster:
-            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
-          src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
-          type: "application/x-mpegURL",
-          waveform:
-            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
-        });
-        /*
+      // Set the player src object
+      /*examplePlayer.src({
+        poster:
+          "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+        src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
+        type: "application/x-mpegURL",
+        waveform:
+          "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
+      });
+
         examplePlayer.src({
           poster:
             "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
           src: "https://s3b-assets-bucket.s3.amazonaws.com/test-videos/ForBiggerBlazes.mp4",
           type: "video/mp4",
-        });
-
-        examplePlayer.src({
-          poster:
-            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
-          src: "https://wptuts-deliver.s3.amazonaws.com/doctor_p___sweet_shop.mp3",
-          type: "audio/mp3",
         });*/
-      })(window, window.videojs);
+
+      examplePlayer.src({
+        poster:
+          "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+        src: "https://wptuts-deliver.s3.amazonaws.com/doctor_p___sweet_shop.mp3",
+        type: "audio/mp3",
+      });
     </script>
   </body>
 </html>
