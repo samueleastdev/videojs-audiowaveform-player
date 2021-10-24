@@ -57,9 +57,20 @@ class AudiowaveformPlayer extends Plugin {
 
     });
 
-    self.buildWaveformComponent();
+
 
     this.player.on('loadstart', function(_event) {
+
+      // Clean up
+      if (self.player.getChild('waveform')) {
+        self.player.removeChild("waveform");
+      }
+
+      if (self.player.getChild('waveformArtwork')) {
+        self.player.removeChild("waveformArtwork");
+      }
+
+      self.buildWaveformComponent();
 
       let source = self.player.currentSource();
 

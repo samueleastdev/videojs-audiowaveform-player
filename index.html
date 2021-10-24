@@ -15,6 +15,15 @@
     <ul>
       <li><a href="/test/debug.html">Run unit tests in browser.</a></li>
       <li><a href="docs/api/">Read generated docs.</a></li>
+      <li>
+        <a href="#" id="vDash">Switch to M3U8 manifest.</a>
+      </li>
+      <li>
+        <a href="#" id="vHls">Switch to MP4.</a>
+      </li>
+      <li>
+        <a href="#" id="aHls">Switch to MP3 no json web api generated.</a>
+      </li>
     </ul>
     <!--<div class="vjs-waveform"></div>-->
     <script src="node_modules/video.js/dist/video.js"></script>
@@ -41,27 +50,43 @@
       });
 
       // Set the player src object
-      /*examplePlayer.src({
-        poster:
-          "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
-        src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
-        type: "application/x-mpegURL",
-        waveform:
-          "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
-      });
-
-        examplePlayer.src({
-          poster:
-            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
-          src: "https://s3b-assets-bucket.s3.amazonaws.com/test-videos/ForBiggerBlazes.mp4",
-          type: "video/mp4",
-        });*/
-
       examplePlayer.src({
         poster:
           "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
         src: "https://wptuts-deliver.s3.amazonaws.com/doctor_p___sweet_shop.mp3",
         type: "audio/mp3",
+      });
+
+      document.getElementById("vDash").addEventListener("click", (event) => {
+        examplePlayer.src({
+          poster:
+            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+          src: "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.m3u8",
+          type: "application/x-mpegURL",
+          waveform:
+            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.json",
+        });
+        return false;
+      });
+
+      document.getElementById("vHls").addEventListener("click", (event) => {
+        examplePlayer.src({
+          poster:
+            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+          src: "https://s3b-assets-bucket.s3.amazonaws.com/test-videos/ForBiggerBlazes.mp4",
+          type: "video/mp4",
+        });
+        return false;
+      });
+
+      document.getElementById("aHls").addEventListener("click", (event) => {
+        examplePlayer.src({
+          poster:
+            "https://d3370nekj200fx.cloudfront.net/2acd5699_8858_48fd_96c2_b87b5cc16442/master.jpg",
+          src: "https://wptuts-deliver.s3.amazonaws.com/doctor_p___sweet_shop.mp3",
+          type: "audio/mp3",
+        });
+        return false;
       });
     </script>
   </body>
