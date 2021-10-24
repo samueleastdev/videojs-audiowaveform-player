@@ -15,6 +15,7 @@ const defaults = {
   barHeight: 1,
   brand: "rgba(75, 150, 242, 1)",
   posterWidth: 160,
+  fallbackSupport: ["video/mp4", "video/m4v", "video/mov", "video/quicktime", "video/x-flv", "application/mxf", "video/x-msvideo", "video/x-ms-wmv", "video/x-matroska", "audio/mp3", "audio/wav", "audio/x-aiff", "audio/aiff", "audio/x-flac", "audio/flac", "audio/aac", "audio/mpeg"],
   styles: {
     position: "absolute",
     height: "120px",
@@ -57,8 +58,6 @@ class AudiowaveformPlayer extends Plugin {
 
     });
 
-
-
     this.player.on('loadstart', function(_event) {
 
       // Clean up
@@ -78,17 +77,32 @@ class AudiowaveformPlayer extends Plugin {
 
       let url = (source.waveform) ? source.waveform : source.src;
 
-      self.getWaveformData((source.waveform) ? source.waveform : source.src, (source.waveform) ? 'json' : 'arraybuffer').then((body) => {
+      if (source.waveform) {
 
-        if (body instanceof ArrayBuffer) {
-          self.convertWaveformData(body).then((res) => {
-            self.buildWaveform(res);
-          });
-        } else {
+        self.getWaveformData(source.waveform, 'json').then((body) => {
+
           self.buildWaveform(body);
+
+        });
+
+      } else {
+
+        // Implement fallback
+        if (self.options.fallbackSupport.includes(this.currentType())) {
+
+          self.getWaveformData(source.src, 'arraybuffer').then((body) => {
+
+            if (body instanceof ArrayBuffer) {
+              self.convertWaveformData(body).then((res) => {
+                self.buildWaveform(res);
+              });
+            }
+
+          });
+
         }
 
-      });
+      }
 
     });
 
